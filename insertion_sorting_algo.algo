@@ -1,0 +1,34 @@
+ALGORITHM insertion_sort
+VAR
+    i,j,index:INTEGER;
+    arr : ARRAY_OF integer[100];
+BEGIN
+    read_array(arr);
+    FOR i FROM 1 TO arr.length-1  DO   
+FOR j FROM 0 TO i-1  DO
+IF (arr[i]>=arr[j]) THEN
+    index:=j
+END_IF
+END_FOR
+    insert(arr,index,i);
+    END_FOR
+END
+PROCEDURE insert(index,i:INTEGER; VAR arr : ARRAY_OF intger[100];)
+VAR
+    temp,l:INTEGER;
+BEGIN
+temp:=arr[i];
+    FOR l FROM i-1 TO index STEP -1  DO
+        arr[l+1]:=arr[l]
+    END_FOR
+    arr[index]:=temp;
+END
+
+PROCEDURE read_array(VAR arr : ARRAY_OF integer[100];)
+VAR
+    l:INTEGER;
+BEGIN
+    FOR l FROM 0 TO arr.length-1  DO
+        read(arr[l]);
+    END_FOR
+END
